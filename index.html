@@ -2,18 +2,138 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hubo World Builder</title>
+    <!-- jQuery -->
+    <script src="./jquery.js"
+      onload="window.$ = window.jQuery = module.exports;"></script>
+    <!-- stylesheet -->
+    <style>
+    html {
+      font-family: sans-serif;
+    }
+    #room {
+      border: 10px solid #aaa;
+      width: fit-content;
+    }
+    #hubo {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background-color: #ddd;
+    }
+    #data {
+      display: none;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      background: #f3f3f3;
+      width: fit-content;
+    }
+    .cell {
+      width: 40px;
+      height: 40px;
+    }
+    .wall {
+      background: #e2e2e2;
+    }
+    .vert {
+        width: 10px;
+        height: 40px;
+    }
+    .hori {
+        width: 40px;
+        height: 10px;
+    }
+    .none {
+        width: 10px;
+        height: 10px;
+    }
+    .wall:hover:not(.none) {
+      background: #78e8c6; /*  */
+    }
+    .wall.sel:not(.none) {
+      background: #468aff;
+    }
+    .wall.sel:hover:not(.none) {
+      background: #3dceff;
+    }
+    .incl {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      height: 40px;
+      z-index: 2;
+    }
+    .incl > .plus, .incl > .minus {
+      width: 20px;
+      line-height: 40px;
+      opacity: 0;
+      text-align: center;
+    }
+    .beep {
+      position: relative;
+      width: 40px;
+      top: -40px;
+      text-align: center;
+      line-height: 40px;
+      z-index: 1;
+    }
+    .incl:hover > .plus, .incl:hover > .minus {
+      opacity: 1;
+    }
+    .incl > .plus:hover {
+      color: white;
+      background: rgba(255, 68, 56, 0.5);
+    }
+    .incl > .minus:hover {
+      color: white;
+      background: rgba(47, 146, 233, 0.5);
+    }
+    .incl:hover + .beep {
+      opacity: 0.5;
+    }
+    :not(input):not(textarea),
+    :not(input):not(textarea)::after,
+    :not(input):not(textarea)::before {
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: default;
+    }
+    input, button, textarea, :focus {
+      outline: none;
+    }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+    <div id=room></div>
+    <div id=hubo>
+      <img src="./icon/e.png" style="width: 30px; height: 30px;">
+    </div>
+    <div id=data>E</div>
+    <div id=inps>
+      <div>
+        <p>Create new world:
+          <input type="text" id="inav" placeholder="10"> x
+          <input type="text" id="inst" placeholder="10">
+          <input type="button" id="crwd" value="Create">
+        </p>
+        <p>
+          No Robot object in this world: <input type="checkbox" id="inrb">
+        </p>
+        <p class='robot'>
+          How many beepers: <input type="text" id="inbp" placeholder="1000">
+        </p>
+        <div style="display: flex; flex-direction: row">
+          <div style="margin-right: 8px">Save to:</div>
+          <div>
+            <input type="text" id="indr" placeholder="myWorld">
+            <input type="button" id="save" value="Save">
+          </div>
+        </div>
+      </div>
 
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-  </script>
+    </div>
+  </body>
+  <script>require('./renderer.js')</script>
 </html>

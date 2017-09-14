@@ -1,21 +1,20 @@
 {
-  "name": "electron-quick-start",
+  "name": "huboBuilder",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "KAIST CS101 Hubo World Builder",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/utophii/huboBuilder",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "CS101",
+    "KAIST",
+    "Hubo",
+	"electron"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "utophii",
+  "license": "MIT",
   "devDependencies": {
     "electron": "~1.6.2"
   }
