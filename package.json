@@ -16,6 +16,6 @@
   "author": "utophii",
   "license": "MIT",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~9.1.0"
   }
 }
